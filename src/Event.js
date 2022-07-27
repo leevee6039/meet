@@ -19,7 +19,6 @@ export class Event extends Component {
           {this.state.show && (
             <>
               <h2 className="event-about-title">About event:</h2>
-              <p className="event-description">{event.description}</p>
               <a
                 href={event.htmlLink}
                 target="_blank"
@@ -28,6 +27,7 @@ export class Event extends Component {
               >
                 See details on Google Calendar
               </a>
+              <p className="event-description">{event.description}</p>
             </>
           )}
           {!this.state.show ? (
