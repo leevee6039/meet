@@ -15,6 +15,7 @@ export class NumberOfEvents extends Component {
           <input
             type="number"
             className="number-input"
+            placeholder="Enter number"
             value={this.state.numOfEvents}
             onChange={this.handleInputChanged}
           />
