@@ -48,7 +48,7 @@ So that **user can see more/less information about an event**
 
 - **Scenario 1:** An event element is collapsed by default.
 
-  - **Given** the user selects a city (e.g., “Berlin, Germany”) from the list
+  - **Given** the user opens the app
   - **When** the user see a list of all upcoming events (with show details button)
   - **Then** the user should see a each list is collapsed by default
 
@@ -72,13 +72,13 @@ So that **user can see more or fewer events in the events list at once**
 
 - **Scenario 1:** When user hasn’t specified a number, 32 is the default number.
 
-  - **Given** the user selects a city from the main page then the user see a list of events with number of events input filed
-  - **When** the user haven't touched/modified the number of events input filed
+  - **Given** the user did not specified a number of events being shown
+  - **When** app loaded
   - **Then** the user should see a default number which is 32
 
 - **Scenario 2:** User can change the number of events they want to see.
 
-  - **Given** the user selects a city from the main page then the user see a list of events with number of events input filed
+  - **Given** the list of elements has been loaded and the user did not specify a number of events he wants to see
   - **When** the user enters a number (for example 6) in the number of events input field
   - **Then** the user should see a 6 in the input field and user should only see a 6 events in the page
 
