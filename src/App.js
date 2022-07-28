@@ -63,7 +63,9 @@ class App extends Component {
           numberOfEvents={this.state.numberOfEvents}
           updateEvents={this.updateEvents}
         />
-        <EventList events={this.state.events} />
+        <EventList
+          events={this.state.events.slice(0, this.state.numberOfEvents)}
+        />
       </div>
     );
   }
