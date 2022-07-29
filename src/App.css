@@ -9,13 +9,27 @@
   box-sizing: border-box;
 }
 
-ul {
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+/* grid fall back */
+ul{
+  display: inline-block;
+  width: 90%;
+  border-radius: 5px;
 }
+
+@supports (display: grid){
+  ul {
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    max-width: 90%;
+    margin: auto;
+  }
+}
+
+
+
 
 p {
   margin: 5px 0;
@@ -214,6 +228,12 @@ input[type="number"] {
     max-width: 50%;
     min-width: auto;
     margin: 0 auto;
+  }
+}
+
+@media all and (max-width: 768px) {
+  ul {
+    grid-template-columns: 1fr;
   }
 }
 
