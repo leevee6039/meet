@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
 .App {
   text-align: center;
-  padding: 2% 5%;
+  padding: 5% 5%;
   background-color:#f0f8ff
 }
 
@@ -137,6 +137,7 @@ input[type="number"] {
   width: 200px;
   margin: 20px auto;
   text-align: center;
+  height: 100px;
 }
 
 .button-wrapper {
@@ -236,6 +237,19 @@ input[type="number"] {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Alert Styles */
+
+.alert {
+  font-size: 14px;
+}
+
+.info-alert{
+  position: absolute;
+  bottom: 42px;
+}
+
 
 /* .App {
   text-align: center;
