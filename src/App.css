@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
 .App {
   text-align: center;
-  padding: 5% 5%;
+  padding: 7% 7%;
   background-color:#f0f8ff
 }
 
@@ -245,9 +245,14 @@ input[type="number"] {
   font-size: 14px;
 }
 
-.info-alert{
+.info-alert {
   position: absolute;
   bottom: 42px;
+}
+
+.warning-alert {
+  position: absolute;
+  top: 0;
 }
 
 
