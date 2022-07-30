@@ -13,7 +13,13 @@ class App extends Component {
   async componentDidMount() {
     this.mounted = true;
     const accessToken = localStorage.getItem('access_token');
-    const isTokenValid = (await checkToken(accessToken)).error ? false : true;
+    // const isTokenValid = (await checkToken(accessToken)).error ? false : true;
+    let isTokenValid;
+    if (accessToken && !navigator.onLine) {
+      isTokenValid = true;
+    } else {
+      isTokenValid = (await checkToken(accessToken)).error ? false : true;
+    }
     const searchParams = new URLSearchParams(window.location.search);
     const code = searchParams.get('code');
     this.setState({ showWelcomeScreen: !(code || isTokenValid) });
@@ -42,12 +48,16 @@ class App extends Component {
 
   // update events
   updateEvents = (location, eventCount) => {
-    if (location === undefined) {
-      location = this.state.seletedLocation;
-    }
-    if (eventCount === undefined) {
-      eventCount = this.state.numberOfEvents;
-    }
+    if (!location) location = 'all';
+    !eventCount
+      ? (eventCount = this.state.numberOfEvents)
+      : this.setState({ numberOfEvents: eventCount });
+    // if (location === undefined) {
+    //   location = this.state.seletedLocation;
+    // }
+    // if (eventCount === undefined) {
+    //   eventCount = this.state.numberOfEvents;
+    // }
     getEvents().then((events) => {
       const locationEvents =
         location === 'all'
@@ -55,9 +65,9 @@ class App extends Component {
           : events.filter((event) => event.location === location);
 
       this.setState({
-        events: locationEvents.slice(0, eventCount),
-        numberOfEvents: eventCount,
-        seletedLocation: location
+        events: locationEvents.slice(0, eventCount)
+        // numberOfEvents: eventCount,
+        // seletedLocation: location
       });
     });
   };
@@ -75,6 +85,7 @@ class App extends Component {
   render() {
     if (this.state.showWelcomeScreen === undefined)
       return <div className="App" />;
+
     return (
       <div className="App">
         <WarningAlert text={this.state.warningText}></WarningAlert>
