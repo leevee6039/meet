@@ -136,3 +136,8 @@
 }
 
 
+@media all and (max-width: 768px) {
+  .rainbow {
+    display:contents;
+  }
+}
