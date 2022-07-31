@@ -19,6 +19,8 @@ import {
 
 class App extends Component {
   // componentDidMount
+
+  // // for localhost
   // componentDidMount() {
   //   this.mounted = true;
   //   getEvents().then((events) => {

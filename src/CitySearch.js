@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { InfoAlert } from './Alert';
 
-export class CitySearch extends Component {
+class CitySearch extends Component {
   handleInputChanged = (event) => {
     const value = event.target.value;
     // this.setState({ showSuggestions: true });
