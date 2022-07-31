@@ -1,22 +1,27 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
+
 .App {
   text-align: center;
-  padding: 7% 7%;
-  background-color:#f0f8ff
+  padding: 2% 2%;
+  background-color: #f0f8ff
 }
 
 .App * {
   box-sizing: border-box;
 }
 
+.nearCity-h4 {
+  padding: 20px;
+}
+
 /* grid fall back */
-ul{
+ul {
   display: inline-block;
   width: 90%;
   border-radius: 5px;
 }
 
-@supports (display: grid){
+@supports (display: grid) {
   ul {
     padding: 0;
     list-style: none;
@@ -38,6 +43,7 @@ p {
 .display-none {
   display: none;
 }
+
 .showSuggestions {
   display: block;
 }
@@ -79,19 +85,19 @@ input[type="number"] {
   display: block;
 }
 
-.suggestions > li {
+.suggestions>li {
   text-align: left;
   padding: 8px 6px 8px 10px;
   background-color: #eee;
   cursor: default;
 }
 
-.suggestions > li:last-child {
+.suggestions>li:last-child {
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
 }
 
-.suggestions > li:hover {
+.suggestions>li:hover {
   background-color: #bcdcdb;
 }
 
@@ -104,7 +110,8 @@ input[type="number"] {
   position: relative;
 }
 
-.event-showDetails-btn, .event-hideDetails-btn {
+.event-showDetails-btn,
+.event-hideDetails-btn {
   position: absolute;
   right: 5px;
   bottom: 5px;
@@ -158,10 +165,12 @@ input[type="number"] {
   align-items: center;
   flex-direction: column;
 }
+
 .data-vis-wrapper .recharts-responsive-container {
   min-width: 100%;
   display: flex;
 }
+
 .recharts-surface {
   overflow: visible;
 }
@@ -224,6 +233,7 @@ input[type="number"] {
   .data-vis-wrapper {
     flex-direction: row;
   }
+
   .data-vis-wrapper .recharts-responsive-container {
     flex-basis: 50%;
     max-width: 50%;
@@ -251,8 +261,7 @@ input[type="number"] {
 }
 
 .warning-alert {
-  position: absolute;
-  top: 0;
+  font-weight: 700;
 }
 
 

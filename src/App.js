@@ -132,7 +132,7 @@ class App extends Component {
       <div className="App">
         <WarningAlert text={this.state.warningText}></WarningAlert>
         <h1>Meet App</h1>
-        <h4>Choose your nearest city</h4>
+        <h4 className="nearCity-h4">Choose your nearest city</h4>
         <CitySearch
           locations={this.state.locations}
           updateEvents={this.updateEvents}
