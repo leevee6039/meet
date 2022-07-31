@@ -2,6 +2,8 @@
 
 A serverless, progressive web application (PWA) with React using a test-driven development (TDD) technique. The application uses the Google Calendar API to fetch upcoming events.
 
+![Meet_App_Image](src/assets/imgs/meetApp.png)
+
 ## Features & Requirements
 
 ### Key Features
@@ -139,6 +141,10 @@ Install NPM packages
 Start the app
 
 `npm run start`
+
+To push changes to github pages
+
+`npm run deploy`
 
 > Above steps if you get any error try to google
 
