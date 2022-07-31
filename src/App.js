@@ -7,9 +7,36 @@ import NumberOfEvents from './NumberOfEvents';
 import './nprogress.css';
 import { WarningAlert } from './Alert';
 import WelcomeScreen from './WelcomeScreen';
+import {
+  CartesianGrid,
+  Scatter,
+  ScatterChart,
+  Tooltip,
+  XAxis,
+  YAxis,
+  ResponsiveContainer
+} from 'recharts';
 
 class App extends Component {
   // componentDidMount
+  // componentDidMount() {
+  //   this.mounted = true;
+  //   getEvents().then((events) => {
+  //     if (this.mounted) {
+  //       this.setState({ events, locations: extractLocations(events) });
+  //     }
+  //   });
+  //   if (!navigator.onLine) {
+  //     this.setState({
+  //       warningText: "Your're offline! The data was loaded from the cache."
+  //     });
+  //   } else {
+  //     this.setState({
+  //       warningText: ''
+  //     });
+  //   }
+  // }
+
   async componentDidMount() {
     this.mounted = true;
     const accessToken = localStorage.getItem('access_token');
@@ -72,6 +99,19 @@ class App extends Component {
     });
   };
 
+  //getData
+  getData = () => {
+    const { locations, events } = this.state;
+    const data = locations.map((location) => {
+      const number = events.filter(
+        (event) => event.location === location
+      ).length;
+      const city = location.split(',').shift();
+      return { city, number };
+    });
+    return data;
+  };
+
   //states
   state = {
     events: [],
@@ -89,6 +129,8 @@ class App extends Component {
     return (
       <div className="App">
         <WarningAlert text={this.state.warningText}></WarningAlert>
+        <h1>Meet App</h1>
+        <h4>Choose your nearest city</h4>
         <CitySearch
           locations={this.state.locations}
           updateEvents={this.updateEvents}
@@ -97,6 +139,26 @@ class App extends Component {
           numberOfEvents={this.state.numberOfEvents}
           updateEvents={this.updateEvents}
         />
+
+        <h4>Events in each city</h4>
+        {/* Data Visualization - starts */}
+        <ResponsiveContainer height={400}>
+          <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis type="category" dataKey="city" name="city" />
+            <YAxis
+              type="number"
+              dataKey="number"
+              name="number of events"
+              allowDecimals={false}
+            />
+            <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+            <Scatter data={this.getData()} fill="#8884d8" />
+          </ScatterChart>
+        </ResponsiveContainer>
+
+        {/* Data Visualization - ends */}
+
         <EventList events={this.state.events} />
         {/* welocome screen  */}
         <WelcomeScreen
